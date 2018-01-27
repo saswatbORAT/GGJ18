@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ad3ef7e1e574ac54db0d0d713792226a
+timeCreated: 1517058367
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Flamante Roma
+  fontNames:
+  - Flamante Roma
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4e10194f00acc9447897cdf9685f5abb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
