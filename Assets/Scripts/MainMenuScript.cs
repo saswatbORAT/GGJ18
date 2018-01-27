@@ -12,7 +12,8 @@ public class MainMenuScript : MonoBehaviour {
 
     public void Play(){
        int currentLevel = PlayerPrefs.GetInt("currentLevel", 0);
-       SceneManager.LoadScene("Level_"+currentLevel);
+     //  SceneManager.LoadScene("Level_"+currentLevel);
+       SceneManager.LoadScene("main");
     }
 
     public void Levels(){

@@ -11,14 +11,16 @@ public class UIController : MonoBehaviour {
 
     public int totalLevels;
     int currentLevel;
+    public static bool levelComplete;
 
     void Start(){
-        currentLevel = PlayerPrefs.GetInt("currentLevel", 0);
+        levelComplete = false;
+        currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
     }
 
     public void GameOver(){
         GameOverPanel.SetActive(true);
-        if(true){
+        if(levelComplete){
             resultText.text = "LEVEL COMPLETE";
             resultBtnText.text = "NEXT";
             if (currentLevel == totalLevels)
@@ -34,7 +36,7 @@ public class UIController : MonoBehaviour {
     }
 
     public void Result(){
-        if(true){
+        if(levelComplete){
             currentLevel++;
             PlayerPrefs.SetInt("currentLevel", currentLevel);
             SceneManager.LoadScene("Level_" + currentLevel);

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Container : MonoBehaviour {
 
-    GameObject projectile, powerUI;
+    GameObject projectile;
 
     
     [SerializeField][Range(0,50)]
@@ -33,7 +33,6 @@ public class Container : MonoBehaviour {
     Vector2 initPos, lastPos;
     Rigidbody2D projectileRB;
     Quaternion targetRotation;
-    Text powerTxt;
     Transform spawnPoint;
     bool canShoot = true;
     public AnimationCurve curve;
@@ -47,17 +46,13 @@ public class Container : MonoBehaviour {
 	void Awake ()
     {
         box = GetComponent<BoxCollider2D>();
-      
+        spawnPoint = transform.GetChild(0);
+        knob = transform.GetChild(0).transform.GetChild(0);
+    
+       
+         box.enabled = true;
         if(isActive)
         {
-           projectile = GameObject.Find("Projectile");
-           powerUI =  GameObject.Find("PowerHUD");
-           spawnPoint = transform.GetChild(0);
-           projectileRB = projectile.GetComponent<Rigidbody2D>();
-           knob = transform.GetChild(0).transform.GetChild(0);
-           powerTxt = powerUI.GetComponentInChildren<Text>();
-           projectile.SetActive(false);
-           powerUI.SetActive(false);
            box.enabled = false;
         }
          gameController = GameObject.FindObjectOfType<GameController>();
@@ -85,12 +80,11 @@ public class Container : MonoBehaviour {
             
             if (touchDistance <= touchRadius)
             {
+                gameController.powerUI.SetActive(true);
                 dots.gameObject.SetActive(true);
                 canShoot= true;
             }
             box.enabled = false; 
-  
-            powerUI.SetActive(true);
         }
         else if (Input.GetMouseButton(0) && canShoot)
         {
@@ -98,7 +92,7 @@ public class Container : MonoBehaviour {
 
             Vector2 distance = (lastPos - initPos);
             Vector2 tempAngle = distance.normalized;
-     
+           // gameController.powerUI.transform.position = new Vector2(gameController.currentContainer.transform.position.x-1,gameController.currentContainer.transform.position.y+2);
            angle = Vector3.Angle(tempAngle, -Vector3.right);
              //For 360 degree angle
            if (Mathf.Sin(tempAngle.y) > 0)
@@ -118,7 +112,7 @@ public class Container : MonoBehaviour {
            
             power = Mathf.Clamp( (distance.magnitude / dragDistance),0,1);
             knob.transform.localPosition =new Vector2(0, -power*0.85f);
-            powerTxt.text = "Power " + (int)(power * 100) + "Angle " + (int)angle;
+            gameController.powerTxt.text = "Power " + (int)(power * 100) + "Angle " + (int)angle;
             shootForce = (power * maxShootForce);
             dots.startSpeed = 2 * power;
            
@@ -136,38 +130,23 @@ public class Container : MonoBehaviour {
 
     void Shoot()
     {
-          box.enabled = false;
-        projectile.SetActive(true);
-        projectile.transform.position = spawnPoint.transform.position;
-      //  projectileRB.velocity = Vector2.zero;
+        box.enabled = false;
         Debug.Log(shootForce);
+        gameController.objectPool.TryGetNextObject(spawnPoint.position,Quaternion.identity,out projectile);
+        projectile.GetComponent<Projecticle>().enabled = true;
+        gameController.powerUI.SetActive(true);
         knob.transform.localPosition = Vector2.zero;
         dots.gameObject.SetActive(false);
+        CameraFollow.target = projectile.transform;
         LeanTween.delayedCall(1, () => { box.enabled = true; });
 		//box.enabled = true;
-        projectileRB.AddForce(transform.right*shootForce,ForceMode2D.Impulse);
+        projectile.GetComponent<Rigidbody2D>().AddForce(transform.right*shootForce,ForceMode2D.Impulse);
     }
     
 
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Projectile") )
-        {
-            GameObject[] containers = GameObject.FindGameObjectsWithTag("Player");
-            foreach(GameObject g in containers)
-            {
-                g.GetComponent<Container>().isActive = false;
-            }
-           this.isActive = true;
-           gameController.currentContainer = gameObject;
-           projectile = GameObject.Find("Projectile");
-           powerUI =  GameObject.Find("PowerHUD");
-           spawnPoint = transform.GetChild(0);
-           projectileRB = projectile.GetComponent<Rigidbody2D>();
-           powerTxt = powerUI.GetComponentInChildren<Text>();
-           projectile.SetActive(false);
-           powerUI.SetActive(false);
-        }
+       
     }
 }

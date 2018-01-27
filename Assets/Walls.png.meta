@@ -1,18 +1,13 @@
 fileFormatVersion: 2
-guid: da700d29e7d0a8049b8a0adfa706f3ae
-timeCreated: 1517063070
-licenseType: Free
+guid: 179151cfe343d774fa0e0de47f936617
+timeCreated: 1517082990
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Container-01_0
-    21300002: Container-01_1
-    21300004: Container-01_2
-    21300006: Container-01_3
-    21300008: Container-01_4
-    21300010: Container-01_5
-    21300012: Container-01_6
-    21300014: Container-01_7
-    21300016: Container-01_8
+    21300000: Walls_0
+    21300002: Walls_1
+    21300004: Walls_2
+    21300006: Walls_3
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -45,7 +40,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -83,121 +78,104 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: tvOS
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Tizen
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Samsung TV
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Container-01_0
+      name: Walls_0
       rect:
         serializedVersion: 2
-        x: 533
-        y: 915
-        width: 505
-        height: 1198
+        x: 86
+        y: 1560
+        width: 1205
+        height: 1204
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Container-01_1
+      name: Walls_1
       rect:
         serializedVersion: 2
-        x: 1314
-        y: 1821
-        width: 284
-        height: 281
+        x: 1411
+        y: 1560
+        width: 1204
+        height: 1204
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Container-01_2
+      name: Walls_2
       rect:
         serializedVersion: 2
-        x: 1807
-        y: 1928
-        width: 61
-        height: 61
+        x: 86
+        y: 228
+        width: 1205
+        height: 1204
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Container-01_3
+      name: Walls_3
       rect:
         serializedVersion: 2
-        x: 1991
-        y: 1866
-        width: 101
-        height: 136
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Container-01_4
-      rect:
-        serializedVersion: 2
-        x: 1094
-        y: 1508
-        width: 1022
-        height: 218
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Container-01_5
-      rect:
-        serializedVersion: 2
-        x: 1334
-        y: 954
-        width: 64
-        height: 450
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Container-01_6
-      rect:
-        serializedVersion: 2
-        x: 517
-        y: 35
-        width: 754
-        height: 753
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Container-01_7
-      rect:
-        serializedVersion: 2
-        x: 1469
-        y: 75
-        width: 1022
-        height: 693
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Container-01_8
-      rect:
-        serializedVersion: 2
-        x: 2850
-        y: 59
-        width: 825
-        height: 752
+        x: 1411
+        y: 228
+        width: 1204
+        height: 1204
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

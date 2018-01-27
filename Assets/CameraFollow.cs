@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-    public Transform target;
+    public static Transform target;
     GameController gameController;
     private Vector3 velocity = Vector3.one*0.1f;
-    public float FollowSpeed = 0.15f;
-	// Use this for initialization
+    public float FollowSpeed = 0.5f;
+	  public  Transform initialTarget;
+
+      bool isTweening;
+    // Use this for initialization
 	void Awake ()
     {
+        target = initialTarget;
         gameController = GameObject.FindObjectOfType<GameController>();	
 
 	}
@@ -20,8 +24,11 @@ public class CameraFollow : MonoBehaviour {
     {
         Vector3 targetV = new Vector3(target.transform.position.x,0,-10);
         
-   //   transform.position = Vector3.SmoothDamp(transform.position, targetV, ref velocity, dampTime);
-
+        if(!target.CompareTag("Projectile"))
+        transform.position = Vector3.SmoothDamp(transform.position, targetV, ref velocity, FollowSpeed);
+        else
         transform.position = targetV;
 	}
+
+    
 }
