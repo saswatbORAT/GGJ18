@@ -122,6 +122,7 @@ public class Container : MonoBehaviour {
         projectileRB.velocity = Vector2.zero;
         Debug.Log(shootForce);
            dots.gameObject.SetActive(false);
+		box.enabled = true;
         projectileRB.AddForce(transform.right*shootForce,ForceMode2D.Impulse);
     }
     
