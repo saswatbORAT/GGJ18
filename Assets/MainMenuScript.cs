@@ -22,7 +22,10 @@ public class MainMenuScript : MonoBehaviour {
     public void BackToMenu(){
         LevelObj.SetActive(false);
     }
-
+	/// <summary>
+	///
+	/// </summary>
+	/// <param name="index">Index.</param>
     public void OpenLevel(int index){
         SceneManager.LoadScene("Level_" + index); 
     }
