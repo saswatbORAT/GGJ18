@@ -60,7 +60,7 @@ public class Container : MonoBehaviour {
             power = Mathf.Clamp( (distance.magnitude / dragDistance),0,1);
             shootForce = (power * maxShootForce);
             powerTxt.text = "Power " + (int)(power * 100) + "Angle " + (int)angle;
-            Debug.Log("shoot "+shootForce+"power "+power);
+//            Debug.Log("shoot "+shootForce+"power "+power);
         }
         else if(Input.GetMouseButtonUp(0) && canShoot)
         {
@@ -74,7 +74,7 @@ public class Container : MonoBehaviour {
         projectile.SetActive(true);
         projectile.transform.position = spawnPoint.transform.position;
         projectileRB.velocity = Vector2.zero;
-        Debug.Log(shootForce);
+//        Debug.Log(shootForce);
         projectileRB.AddForce(transform.right*shootForce,ForceMode2D.Impulse);
     }
     
